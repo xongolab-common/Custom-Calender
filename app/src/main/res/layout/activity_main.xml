@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/_15sdp"
+    tools:context=".MainActivity">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Calender 1"
+                android:textSize="@dimen/_20sdp"
+                android:textColor="@color/colorPrimary"/>
+
+            <RelativeLayout
+                android:id="@+id/calendarLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:visibility="visible">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnPrevious"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_centerVertical="true"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/ic_left_arrow_primary" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/lblMonthYear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@id/btnNext"
+                    android:layout_toEndOf="@id/btnPrevious"
+                    android:gravity="center"
+                    android:text="March 2023" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnNext"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/ic_right_arrow_primary" />
+
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCalendar1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/raw_calendar_1" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Calender 2"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textSize="@dimen/_20sdp"
+                android:textColor="@color/colorPrimary"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <TextView
+                    android:id="@+id/tvCheckInDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Check in date"
+                    android:layout_alignParentStart="true"/>
+
+                <TextView
+                    android:id="@+id/tvCheckOutDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Check out date"
+                    android:layout_alignParentEnd="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <TextView
+                    android:id="@+id/tvCheckInWeek"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Check in week"
+                    android:layout_alignParentStart="true"/>
+
+                <TextView
+                    android:id="@+id/tvCheckOutWeek"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Check out week"
+                    android:layout_alignParentEnd="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <TextView
+                    android:id="@+id/tvCheckInMonth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Check in month"
+                    android:layout_alignParentStart="true"/>
+
+                <TextView
+                    android:id="@+id/tvCheckOutMonth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Check out month"
+                    android:layout_alignParentEnd="true"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tvNoOfNights"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No Of Nights"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp" />
+
+            <com.archit.calendardaterangepicker.customviews.DateRangeCalendarView
+                android:id="@+id/calendarDateRangePicker"
+                android:layout_width="wrap_content"
+                android:padding="0dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_height="wrap_content"
+                custom:calendar_tag="Test"
+                custom:date_selection_mode="free_range"
+                custom:disable_date_color="#ABABAB"
+                custom:editable="true"
+                custom:enable_time_selection="false"
+                custom:range_color="#FBE7F4"
+                custom:range_date_color="@color/colorSecondary"
+                custom:selected_date_circle_color="@color/colorSecondary"
+                custom:text_size_date="@dimen/_10ssp"
+                custom:text_size_title="@dimen/_16ssp"
+                custom:text_size_week="@dimen/_12ssp"
+                custom:title_color="@color/colorBlack"
+                custom:week_offset="0" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnBookForToNight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Book for tonight"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorSecondary"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Calender 3"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textSize="@dimen/_20sdp"
+                android:textColor="@color/colorPrimary"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_7sdp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/rlMonthView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/dr_gray_border_10"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="@dimen/_15sdp"
+                        android:paddingVertical="@dimen/_15sdp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvMonth"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toStartOf="@+id/imgMonthDown"
+                            android:text="Jun" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/imgMonthDown"
+                            android:layout_width="@dimen/_13sdp"
+                            android:layout_height="@dimen/_13sdp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_down_arrow" />
+
+                    </RelativeLayout>
+
+                    <com.example.customcalender.CustomSpinner
+                        android:id="@+id/spMonth"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:background="@null" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_7sdp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/rlYearView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/dr_gray_border_10"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="@dimen/_15sdp"
+                        android:paddingVertical="@dimen/_15sdp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvYear"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toStartOf="@+id/imgYearDown"
+                            android:text="2024" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/imgYearDown"
+                            android:layout_width="@dimen/_13sdp"
+                            android:layout_height="@dimen/_13sdp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_down_arrow" />
+
+                    </RelativeLayout>
+
+                    <com.example.customcalender.CustomSpinner
+                        android:id="@+id/spYear"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:background="@null" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvDayList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="10"
+                tools:listitem="@layout/raw_day_list" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>
